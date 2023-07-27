@@ -14,16 +14,6 @@ iResolution : résolution de l'écran
 
 */
 
-//https://iquilezles.org/articles/palettes/
-vec3 palette( float t ) {
-    vec3 a = vec3(0.388, 0.478, 0.500);
-    vec3 b = vec3(-0.122, -0.164, 0.355);
-    vec3 c = vec3(0.340, 0.340, 0.340);
-    vec3 d = vec3(0.000, 0.333, 0.667);
-
-    return a + b*cos( 6.28318*(c*t+d) );
-}
-
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
     float CIRCLE_COUNT = (sin(iDate[3]/2.))*150.;
