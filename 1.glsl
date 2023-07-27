@@ -26,7 +26,7 @@ vec3 palette( float t ) {
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
-    float CIRCLE_COUNT = (sin(iTime/2.))*150.;
+    float CIRCLE_COUNT = (sin(iDate[3]/2.))*150.;
     // Normalized pixel coordinates (from -1 to 1)
     vec2 uv = (fragCoord * 2.0 - iResolution.xy) / iResolution.y;
 
@@ -41,7 +41,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
         }
         float angle = (1.01)*i + unitAngle * i;
         vec2 center = vec2(cos(angle), sin(angle))*GLOBAL_RADIUS;
-        float a = (sin(.001/(length(uv-center) - ((sin(iTime+(1.*i)))/10.)))/2.);
+        float a = (sin(.001/(length(uv-center) - ((sin(iDate[3]+(1.*i)))/10.)))/2.);
         color += baseColor*a;
     }
     
