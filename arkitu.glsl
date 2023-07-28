@@ -18,7 +18,7 @@ vec2 space( in vec2 p, in float spacing) {
 }
 
 float A( in vec2 p, in float spacing ) {
-    return step(sdEquilateralTriangle(space(p, spacing), .1), .02);
+    return -sdEquilateralTriangle(space(p, spacing), .12);
 }
 
 float R( in vec2 p, in float spacing ) {
@@ -34,7 +34,7 @@ float R( in vec2 p, in float spacing ) {
     mod_p = rotate(mod_p, PI/4.);
     i += step(sdTriangleIsosceles(mod_p, vec2(.07)), .02);
 
-    return min(i, 1.);
+    return max(min(i, 1.), 0.);
 }
 
 float K( in vec2 p, in float spacing ) {
@@ -62,7 +62,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
     float i = 0.;
 
-    i += A(uv, -2.5);
+    i += 0.02 / A(uv, -2.5);
 
     i += R(uv, -1.5);
 
