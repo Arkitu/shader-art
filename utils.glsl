@@ -1,11 +1,23 @@
 //https://iquilezles.org/articles/palettes/
 vec3 palette( float t ) {
-    vec3 a = vec3(0.388, 0.478, 0.500);
-    vec3 b = vec3(-0.122, -0.164, 0.355);
-    vec3 c = vec3(0.340, 0.340, 0.340);
-    vec3 d = vec3(0.000, 0.333, 0.667);
+    vec3 a = vec3(0.938, 0.328, 0.718);
+    vec3 b = vec3(0.659, 0.438, 0.328);
+    vec3 c = vec3(0.388, 0.388, 0.296);
+    vec3 d = vec3(2.538, 2.478, 0.168);
 
     return a + b*cos( 6.28318*(c*t+d) );
+}
+
+float random (vec2 st) {
+    return fract(sin(dot(st.xy,
+                         vec2(12.9898,78.233)))*
+        43758.5453123);
+}
+
+float random (float i) {
+    return fract(sin(dot(vec2(i),
+                         vec2(12.9898,78.233)))*
+        43758.5453123);
 }
 
 float sdSegment( in vec2 p, in vec2 a, in vec2 b )
